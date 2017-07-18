@@ -13,7 +13,7 @@ yarn add ngx-textarea-autosize
 ```
 
 ## Usage:
-1. Import module to your @NgModule:
+Import module to your @NgModule:
 
 ```typescript
 import { TextareaAutosizeModule } from 'ngx-textarea-autosize';
@@ -24,8 +24,8 @@ import { TextareaAutosizeModule } from 'ngx-textarea-autosize';
   ]
 })
 ```
-2. Add directive to your textarea
 
+Add directive to your textarea
 ```
 <textarea autosize>Some text</textarea>
 ```

@@ -1,6 +1,6 @@
 {
   "name": "ngx-textarea-autosize",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Angular 4 directive that automatically control height textarea to fit content",
   "main": "intex.ts",
   "scripts": {
