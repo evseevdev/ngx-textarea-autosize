@@ -1,5 +1,5 @@
 # ngx-textarea-autosize
-The plugin for Angular 4 that automatically control height textarea to fit content
+The plugin for Angular 4 that automatically control height textarea to fit content.
 
 ## Installation:
 
