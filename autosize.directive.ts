@@ -8,7 +8,7 @@ export class AutosizeDirective implements AfterContentChecked {
   constructor(public element: ElementRef) {}
 
   @HostListener('input', ['$event.target'])
-  public onInput() {
+  public onInput(target) {
     this.resize();
   }
 
