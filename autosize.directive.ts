@@ -1,18 +1,19 @@
-import { AfterContentChecked, Directive, ElementRef, HostListener } from '@angular/core';
+import {AfterViewInit, Directive, ElementRef, HostListener} from '@angular/core';
 
 @Directive({
   selector: 'textarea[autosize]'
 })
-export class AutosizeDirective implements AfterContentChecked {
+export class AutosizeDirective implements AfterViewInit {
 
-  constructor(public element: ElementRef) {}
+  constructor(public element: ElementRef) {
+  }
 
-  @HostListener('input', ['$event.target'])
+  @HostListener('input')
   public onInput() {
     this.resize();
   }
 
-  public ngAfterContentChecked() {
+  ngAfterViewInit(): void {
     this.resize();
   }
 
