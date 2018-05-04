@@ -1,16 +1,18 @@
-import {AfterViewInit, Directive, ElementRef, HostListener} from '@angular/core';
+import {AfterViewInit, Directive, ElementRef, HostBinding, HostListener} from '@angular/core';
 
 @Directive({
   selector: 'textarea[autosize]'
 })
 export class AutosizeDirective implements AfterViewInit {
-
-  constructor(public element: ElementRef) {
-  }
+  @HostBinding('style.overflow') overflow = 'hidden';
+  @HostBinding('rows') rows = 1;
 
   @HostListener('input')
   public onInput() {
     this.resize();
+  }
+
+  constructor(public hostElem: ElementRef) {
   }
 
   ngAfterViewInit(): void {
@@ -18,12 +20,9 @@ export class AutosizeDirective implements AfterViewInit {
   }
 
   public resize() {
-    const style = this.element.nativeElement.style;
-    style.overflow = 'hidden';
+    const style = this.hostElem.nativeElement.style;
     style.height = 'auto';
-
-    const height = this.element.nativeElement.scrollHeight;
-    style.height = `${height}px`;
+    style.height = `${this.hostElem.nativeElement.scrollHeight}px`;
   }
 
 }
