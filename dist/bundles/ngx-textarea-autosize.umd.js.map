@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "file": "ngx-textarea-autosize.umd.js",
+  "sources": [
+    "ng://ngx-textarea-autosize/out/textarea-autosize.module.ts",
+    "ng://ngx-textarea-autosize/out/autosize.directive.ts"
+  ],
+  "sourcesContent": [
+    "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { AutosizeDirective } from './autosize.directive';\n\n@NgModule({\n  imports: [CommonModule],\n  declarations: [AutosizeDirective],\n  exports: [AutosizeDirective]\n})\nexport class TextareaAutosizeModule {}\n",
+    "import {\n  AfterViewInit,\n  Directive,\n  ElementRef,\n  HostListener\n} from '@angular/core';\n\n@Directive({\n  selector: 'textarea[autosize]',\n  host: {\n    'rows': '1',\n    'style': 'overflow: hidden'\n  }\n})\nexport class AutosizeDirective implements AfterViewInit {\n\n  constructor(\n    private elem: ElementRef\n  ) { }\n\n  public ngAfterViewInit() {\n    this.resize();\n  }\n\n  @HostListener('input')\n  private resize() {\n    const textarea = this.elem.nativeElement as HTMLTextAreaElement;\n    // Reset textarea height to auto that correctly calculate the new height\n    textarea.style.height = 'auto';\n    // Set new height\n    textarea.style.height = `${textarea.scrollHeight}px`;\n  }\n}\n"
+  ],
+  "names": [
+    "CommonModule",
+    "NgModule",
+    "HostListener",
+    "ElementRef",
+    "Directive"
+  ],
+  "mappings": ";;;;;;ACAA,IAAA,iBAAA,kBAAA,YAAA;IAgBE,SAAF,iBAAA,CACY,IADZ,EAAA;QACY,IAAZ,CAAA,IAAgB,GAAJ,IAAI,CAAhB;KACO;IAEE,iBAAT,CAAA,SAAA,CAAA,eAAwB,GAAf,YAAT;QACI,IAAI,CAAC,MAAM,EAAE,CAAC;;IAIR,iBAAV,CAAA,SAAA,CAAA,MAAgB,GAAN,YAAV;QACI,IAAM,QAAQ,IAAG,IAAI,CAAC,IAAI,CAAC,aAAoC,CAAA,CAAC;QAEhE,QAAQ,CAAC,KAAK,CAAC,MAAM,GAAG,MAAM,CAAC;QAE/B,QAAQ,CAAC,KAAK,CAAC,MAAM,GAAM,QAAQ,CAAC,YAAY,GAApD,IAAwD,CAAC;;;;;IAvBzD,EAAA,IAAA,EAACI,cAAS,EAAV,IAAA,EAAA,CAAW;gBACT,QAAQ,EAAE,oBAAoB;gBAC9B,IAAI,EAAE;oBACJ,MAAM,EAAE,GAAG;oBACX,OAAO,EAAE,kBAAkB;iBAC5B;aACF,EAAD,EAAA;;;IAVA,EAAA,IAAA,EAAED,eAAU,GAAZ;;;IAqBA,QAAA,EAAA,CAAA,EAAA,IAAA,EAAGD,iBAAY,EAAf,IAAA,EAAA,CAAgB,OAAO,EAAvB,EAAA,EAAA;;ADxBA,IAAA,sBAAA,kBAAA,YAAA;IAAA,SAAA,sBAAA,GAAA;;;;;IAIA,EAAA,IAAA,EAACD,aAAQ,EAAT,IAAA,EAAA,CAAU;gBACR,OAAO,EAAE,CAACD,mBAAY,CAAC;gBACvB,YAAY,EAAE,CAAC,iBAAiB,CAAC;gBACjC,OAAO,EAAE,CAAC,iBAAiB,CAAC;aAC7B,EAAD,EAAA;;;;;;;;;;;;;;;"
+}

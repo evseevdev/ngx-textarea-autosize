@@ -6,11 +6,6 @@
     "build": "ng-packagr -p package.json"
   },
   "$schema": "./node_modules/ng-packagr/package.schema.json",
-  "ngPackage": {
-    "lib": {
-      "entryFile": "src/index.ts"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/evseevdev/ngx-textarea-autosize.git"
@@ -25,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/evseevdev/ngx-textarea-autosize/issues"
   },
-  "homepage": "https://github.com/evseevdev/ngx-textarea-autosize#readme"
+  "homepage": "https://github.com/evseevdev/ngx-textarea-autosize#readme",
+  "main": "bundles/ngx-textarea-autosize.umd.js",
+  "module": "esm5/ngx-textarea-autosize.js",
+  "es2015": "esm2015/ngx-textarea-autosize.js",
+  "typings": "ngx-textarea-autosize.d.ts",
+  "metadata": "ngx-textarea-autosize.metadata.json",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  }
 }
