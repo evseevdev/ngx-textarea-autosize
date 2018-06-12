@@ -1,0 +1,33 @@
+{
+  "name": "ngx-textarea-autosize",
+  "version": "1.1.1",
+  "description": "Angular 4 directive that automatically control height textarea to fit content",
+  "main": "bundles/ngx-textarea-autosize.umd.js",
+  "scripts": {
+    "build": "ng-packagr -p package.json"
+  },
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evseevdev/ngx-textarea-autosize.git"
+  },
+  "keywords": [
+    "angular2",
+    "angular4",
+    "textarea",
+    "autosize"
+  ],
+  "author": "Vladimir Evseev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evseevdev/ngx-textarea-autosize/issues"
+  },
+  "homepage": "https://github.com/evseevdev/ngx-textarea-autosize#readme",
+  "module": "esm5/ngx-textarea-autosize.js",
+  "es2015": "esm2015/ngx-textarea-autosize.js",
+  "typings": "ngx-textarea-autosize.d.ts",
+  "metadata": "ngx-textarea-autosize.metadata.json",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  }
+}

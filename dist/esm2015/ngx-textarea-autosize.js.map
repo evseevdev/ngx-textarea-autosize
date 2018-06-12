@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "file": "ngx-textarea-autosize.js",
+  "sources": [
+    "ng://ngx-textarea-autosize/out/textarea-autosize.module.ts",
+    "ng://ngx-textarea-autosize/out/autosize.directive.ts"
+  ],
+  "sourcesContent": [
+    "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { AutosizeDirective } from './autosize.directive';\n\n@NgModule({\n  imports: [CommonModule],\n  declarations: [AutosizeDirective],\n  exports: [AutosizeDirective]\n})\nexport class TextareaAutosizeModule {}\n",
+    "import {\n  AfterViewInit,\n  Directive,\n  ElementRef,\n  HostListener\n} from '@angular/core';\n\n@Directive({\n  selector: 'textarea[autosize]',\n  host: {\n    'rows': '1',\n    'style': 'overflow: hidden'\n  }\n})\nexport class AutosizeDirective implements AfterViewInit {\n\n  constructor(\n    private elem: ElementRef\n  ) { }\n\n  public ngAfterViewInit() {\n    this.resize();\n  }\n\n  @HostListener('input')\n  private resize() {\n    const textarea = this.elem.nativeElement as HTMLTextAreaElement;\n    // Reset textarea height to auto that correctly calculate the new height\n    textarea.style.height = 'auto';\n    // Set new height\n    textarea.style.height = `${textarea.scrollHeight}px`;\n  }\n}\n"
+  ],
+  "names": [],
+  "mappings": ";;;;;;;ACAA,AAcA,MAAA,iBAAA,CAAA;;;;IAEE,WAAF,CACY,IADZ,EAAA;QACY,IAAZ,CAAA,IAAgB,GAAJ,IAAI,CAAhB;KACO;;;;IAEE,eAAe,GAAxB;QACI,IAAI,CAAC,MAAM,EAAE,CAAC;;;;;IAIR,MAAM,GAAhB;QACI,uBAAM,QAAQ,qBAAG,IAAI,CAAC,IAAI,CAAC,aAAoC,CAAA,CAAC;;QAEhE,QAAQ,CAAC,KAAK,CAAC,MAAM,GAAG,MAAM,CAAC;;QAE/B,QAAQ,CAAC,KAAK,CAAC,MAAM,GAAG,CAA5B,EAA+B,QAAQ,CAAC,YAAY,CAApD,EAAA,CAAwD,CAAC;;;;IAvBzD,EAAA,IAAA,EAAC,SAAS,EAAV,IAAA,EAAA,CAAW;gBACT,QAAQ,EAAE,oBAAoB;gBAC9B,IAAI,EAAE;oBACJ,MAAM,EAAE,GAAG;oBACX,OAAO,EAAE,kBAAkB;iBAC5B;aACF,EAAD,EAAA;;;;IAVA,EAAA,IAAA,EAAE,UAAU,GAAZ;;;IAqBA,QAAA,EAAA,CAAA,EAAA,IAAA,EAAG,YAAY,EAAf,IAAA,EAAA,CAAgB,OAAO,EAAvB,EAAA,EAAA;;;;;;;ADxBA,AASA,MAAA,sBAAA,CAAA;;;IALA,EAAA,IAAA,EAAC,QAAQ,EAAT,IAAA,EAAA,CAAU;gBACR,OAAO,EAAE,CAAC,YAAY,CAAC;gBACvB,YAAY,EAAE,CAAC,iBAAiB,CAAC;gBACjC,OAAO,EAAE,CAAC,iBAAiB,CAAC;aAC7B,EAAD,EAAA;;;;;;;;;;;;;;;;;;;;"
+}
