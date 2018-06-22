@@ -25,9 +25,11 @@ export class AutosizeDirective implements AfterViewInit {
   @HostListener('input')
   private resize() {
     const textarea = this.elem.nativeElement as HTMLTextAreaElement;
+    // Calculate border height which is not included in scrollHeight
+    const borderHeight = textarea.offsetHeight - textarea.clientHeight;
     // Reset textarea height to auto that correctly calculate the new height
     textarea.style.height = 'auto';
     // Set new height
-    textarea.style.height = `${textarea.scrollHeight}px`;
+    textarea.style.height = `${textarea.scrollHeight + borderHeight}px`;
   }
 }
