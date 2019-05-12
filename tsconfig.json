@@ -1,24 +1,20 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "declaration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": ["es2015", "dom"],
-    "noImplicitAny": false,
-    "target": "es5",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
     "module": "es2015",
     "moduleResolution": "node",
-    "sourceMap": true,
-    "mapRoot": "",
-    "skipLibCheck": true,
-    "baseUrl": ""
-  },
-  "files": [
-    "index.ts",
-    "autosize.directive.ts"
-  ],
-  "exclude": ["node_modules"],
-  "angularCompilerOptions": {
-    "skipTemplateCodegen": true
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
+    "typeRoots": ["node_modules/@types"],
+    "paths": {
+      "@ngx-textarea-autosize": ["lib/dist"]
+    },
+    "lib": ["es2018", "dom"]
   }
 }
