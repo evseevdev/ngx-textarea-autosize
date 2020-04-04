@@ -31,7 +31,7 @@ export class AutosizeDirective implements AfterViewInit, DoCheck {
   }
 
   @HostListener('input')
-  private resize() {
+  public resize() {
     const textarea = this.elem.nativeElement as HTMLTextAreaElement;
     // Calculate border height which is not included in scrollHeight
     const borderHeight = textarea.offsetHeight - textarea.clientHeight;
